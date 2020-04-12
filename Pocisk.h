@@ -23,3 +23,4 @@ public:
 };
 
 //jebac disa
+//syna diabła
