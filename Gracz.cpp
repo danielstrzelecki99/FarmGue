@@ -23,6 +23,8 @@ void Gracz::draw(RenderTarget& target, RenderStates state) const
 void Gracz::move()
 {
 	sgracz.setPosition(px, py);
+	pozx = sgracz.getPosition().x;
+	pozy = sgracz.getPosition().y;
 	if (sgracz.getPosition().x < 0)
 		px = 0;
 	if (sgracz.getPosition().x > 1034.5)
