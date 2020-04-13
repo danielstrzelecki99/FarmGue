@@ -11,6 +11,7 @@ private:
 	float gresp_x;
 	float gresp_y;
 public:
+	float pozx, pozy;
 	Gracz();
 	void draw(RenderTarget& target, RenderStates state) const override;
 	Sprite sgracz;
