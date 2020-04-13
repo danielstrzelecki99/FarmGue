@@ -18,6 +18,7 @@ int main()
 	Minion m;
 	Gracz g;
 	Pocisk p;
+	Sounds music, h, a, w;
 	vector<Pocisk>pociski;
 	RenderWindow okno(VideoMode(1200, 880), "FarmGue");
 	okno.setFramerateLimit(60);
@@ -30,6 +31,8 @@ int main()
 	obrazek.setTexture(tekstura);
 	bool Blokada = false;
 	int pkt = 0;
+	music.sbackground.play();
+	w.swelcome.play();
 
 
 	while (okno.isOpen())
@@ -50,6 +53,7 @@ int main()
 				p.spawn(g);
 				p.movep(okno);
 				pociski.insert(pociski.begin(), p);
+				a.satack.play();
 			}
 		}
 		if (gratrwa == false)
@@ -123,6 +127,7 @@ int main()
 			{
 				if (sqrt((((miniony[i].pozx+39) - (pociski[j].pozx))*((miniony[i].pozx+39) - (pociski[j].pozx))) + (((miniony[i].pozy+35.5) - (pociski[j].pozy))*((miniony[i].pozy+35.5) - (pociski[j].pozy)))) < 50)
 				{
+					h.shit.play();
 					pociski.erase(pociski.begin() + j);
 					miniony.erase(miniony.begin() + i);
 					pkt+=10;
