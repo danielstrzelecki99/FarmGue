@@ -6,6 +6,7 @@
 #include "Gracz.h"
 #include "Pocisk.h"
 #include <iostream>
+#include "Punkty.h"
 
 using namespace sf;
 using namespace std;
@@ -23,8 +24,12 @@ int main()
 	Texture tekstura;
 	tekstura.loadFromFile("XD.png");
 	Sprite obrazek;
+	Punkty napis;
+	bool gratrwa = true;
+	bool komunikat = false;
 	obrazek.setTexture(tekstura);
 	bool Blokada = false;
+	int pkt = 0;
 
 
 	while (okno.isOpen())
@@ -37,6 +42,8 @@ int main()
 				okno.close();
 			if (event.type == Event::KeyPressed && event.key.code == Keyboard::Escape)
 				okno.close();
+			if (event.type == sf::Event::Resized)
+				okno.setSize(sf::Vector2u(1200, 880));
 			if (Blokada == false && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 			{
 				Blokada = true;
@@ -44,10 +51,17 @@ int main()
 				p.movep(okno);
 				pociski.insert(pociski.begin(), p);
 			}
-			//else if (Blokada == true && !sf::Mouse::isButtonPressed(sf::Mouse::Left))
-			//{
-				//Blokada = false;
-			//}
+		}
+		if (gratrwa == false)
+		{
+			if (komunikat == false)
+			{
+				napis.przegrana(pkt);
+				okno.draw(napis);
+				okno.display();
+				komunikat = true;
+			}
+			continue;
 		}
 		if (Keyboard::isKeyPressed(Keyboard::W))
 		{
@@ -67,7 +81,7 @@ int main()
 		}
 		okno.clear();
 
-		if (x % 60 == 0) Blokada = false;
+		if (x == 60 || x == 120) Blokada = false;
 
 		
 		if (x == 120)
@@ -84,6 +98,11 @@ int main()
 		{
 			miniony[i].move(g);
 			okno.draw(miniony[i]);
+			if (sqrt((((miniony[i].pozx + 39) - (g.pozx + 82.5))*((miniony[i].pozx + 39) - (g.pozx + 82.5))) + (((miniony[i].pozy + 35.5) - (g.pozy + 87.5))*((miniony[i].pozy + 35.5) - (g.pozy + 87.5)))) < 100)
+			{
+				gratrwa = false;
+			}
+				//okno.close();
 		}
 		for (size_t i = 0; i < pociski.size(); i++)
 		{
@@ -106,12 +125,14 @@ int main()
 				{
 					pociski.erase(pociski.begin() + j);
 					miniony.erase(miniony.begin() + i);
+					pkt+=10;
 				}
 				if (pociski.size() < 0) break;
 			}
 		}
 		
-
+		napis.update(pkt);
+		okno.draw(napis);
 		okno.display();
 		cout << pociski.size() << "   " << miniony.size() << endl;
 	}
