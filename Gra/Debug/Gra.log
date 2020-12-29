@@ -1,0 +1,17 @@
+﻿  Gra.cpp
+c:\users\kamil\onedrive\pulpit\farmgue\gra\gra.cpp(1): fatal error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  Gracz.cpp
+c:\users\kamil\onedrive\pulpit\farmgue\gra\gracz.h(2): fatal error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  info.cpp
+c:\users\kamil\onedrive\pulpit\farmgue\gra\info.h(2): fatal error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  koniec.cpp
+c:\users\kamil\onedrive\pulpit\farmgue\gra\koniec.h(2): fatal error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  Minion.cpp
+c:\users\kamil\onedrive\pulpit\farmgue\gra\minion.h(2): fatal error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  Pocisk.cpp
+c:\users\kamil\onedrive\pulpit\farmgue\gra\pocisk.h(3): fatal error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  Punkty.cpp
+c:\users\kamil\onedrive\pulpit\farmgue\gra\punkty.cpp(2): fatal error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
+  Sounds.cpp
+c:\users\kamil\onedrive\pulpit\farmgue\gra\sounds.h(2): fatal error C1083: Nie można otworzyć pliku dołącz: 'SFML/Audio.hpp': No such file or directory
+  Generowanie kodu...
